@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ethical Hacking & Red Teaming - Home</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #181a1b;
+      color: #e0e0e0;
+      height: 100%;
+    }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .header {
+      height: 56px;
+      background: #23272a;
+      display: flex;
+      align-items: center;
+      padding: 0 1rem;
+      box-shadow: 0 1px 4px #0008;
+    }
+    .menu-btn {
+      font-size: 2rem;
+      color: #90caf9;
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-right: 1rem;
+      transition: color 0.2s;
+    }
+    .menu-btn:hover {
+      color: #64b5f6;
+    }
+    .site-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .sidebar {
+      position: fixed;
+      left: 0; top: 0; bottom: 0;
+      width: 260px;
+      background: #23272a;
+      box-shadow: 2px 0 10px #0005;
+      transform: translateX(-110%);
+      transition: transform 0.25s;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      padding-top: 56px;
+    }
+    .sidebar.open {
+      transform: translateX(0);
+    }
+    .sidebar nav {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1rem 0;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .sidebar li {
+      margin: 0.3em 0;
+    }
+    .sidebar .sidebar-link {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding: 0.55em 1.5em 0.55em 1.5em;
+      background: none;
+      border: none;
+      color: #bcbcbc;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      text-align: left;
+      transition: background 0.2s, color 0.2s;
+    }
+    .sidebar .sidebar-link:hover, .sidebar .sidebar-link.active {
+      background: #3d4248;
+      color: #fff;
+    }
+    .sidebar .dropdown {
+      background: none;
+      border: none;
+      color: inherit;
+      padding: 0;
+      cursor: pointer;
+      font: inherit;
+      outline: none;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      margin: 0;
+    }
+    .sidebar .dropdown-icon {
+      display: inline-block;
+      font-size: 1.15em;
+      margin-right: 0.4em;
+      transition: transform 0.2s;
+    }
+    .sidebar .dropdown.open .dropdown-icon {
+      transform: rotate(90deg);
+    }
+    .sidebar .submenu {
+      display: none;
+      padding-left: 1.5em;
+    }
+    .sidebar .dropdown.open + .submenu {
+      display: block;
+    }
+    .content {
+      flex: 1 1 auto;
+      padding: 2.5rem 1.5rem;
+      max-width: 840px;
+      margin: 0 auto;
+      margin-top: 2.5rem;
+    }
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: #0008;
+      z-index: 99;
+    }
+    .overlay.show {
+      display: block;
+    }
+    @media (min-width: 900px) {
+      .sidebar {
+        transform: translateX(0);
+        position: relative;
+        left: unset;
+        width: 220px;
+        box-shadow: none;
+        min-height: 100vh;
+      }
+      .sidebar.open, .overlay {
+        transform: none;
+        display: block !important;
+      }
+      .header {
+        padding-left: 230px;
+      }
+      .content {
+        margin-left: 220px;
+        margin-top: 2.5rem;
+      }
+      .menu-btn, .overlay {
+        display: none;
+      }
+    }
+    ::selection {
+      background: #333b;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <button class="menu-btn" id="menuBtn" aria-label="Open Menu">☰</button>
+    <span class="site-title">Ethical Hacking & Red Teaming</span>
+  </div>
+
+  <aside class="sidebar" id="sidebar">
+    <nav>
+      <ul>
+        <li>
+          <button class="dropdown" aria-expanded="false">
+            <span class="dropdown-icon">▶</span> Ethical Hacking
+          </button>
+          <ul class="submenu">
+            <li><button class="sidebar-link">Footprinting & Reconnaissance</button></li>
+            <li><button class="sidebar-link">Scanning & Enumeration</button></li>
+            <li><button class="sidebar-link">Gaining Access</button></li>
+            <li><button class="sidebar-link">Maintaining Access</button></li>
+            <li><button class="sidebar-link">Covering Tracks</button></li>
+          </ul>
+        </li>
+        <li>
+          <button class="dropdown" aria-expanded="false">
+            <span class="dropdown-icon">▶</span> Red Teaming
+          </button>
+          <ul class="submenu">
+            <li><button class="sidebar-link">Initial Access</button></li>
+            <li><button class="sidebar-link">Lateral Movement</button></li>
+            <li><button class="sidebar-link">Privilege Escalation</button></li>
+            <li><button class="sidebar-link">Command & Control</button></li>
+            <li><button class="sidebar-link">Reporting</button></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+  <div class="overlay" id="overlay"></div>
+  <main class="content">
+    <h1>Welcome to Ethical Hacking & Red Teaming!</h1>
+    <p>
+      This site covers hands-on guides, methodologies, and the latest TTPs for professional penetration testers, ethical hackers, and red teamers.<br>
+      <br>
+      Use the sidebar menu (<span style="font-weight:bold;">☰</span>) to explore topics on attack simulation, enumeration, lateral movement, and more.
+    </p>
+    <hr>
+    <h2>Why Ethical Hacking?</h2>
+    <p>
+      Ethical hacking helps organizations discover and fix security issues before adversaries exploit them. Red teaming goes further by simulating real-world attackers to test defenses and train blue teams under realistic pressure.
+    </p>
+  </main>
+  <script>
+    // Sidebar functionality
+    const menuBtn = document.getElementById('menuBtn');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+    
+    function openSidebar() {
+      sidebar.classList.add('open');
+      overlay.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeSidebar() {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('show');
+      document.body.style.overflow = '';
+    }
+    if (menuBtn) menuBtn.onclick = openSidebar;
+    if (overlay) overlay.onclick = closeSidebar;
+    // Dropdowns
+    document.querySelectorAll('.dropdown').forEach(btn => {
+      btn.onclick = function(e) {
+        e.stopPropagation();
+        btn.classList.toggle('open');
+        btn.setAttribute('aria-expanded', btn.classList.contains('open'));
+      };
+    });
+    // Close sidebar on menu selection (mobile)
+    document.querySelectorAll('.sidebar-link').forEach(link => {
+      link.onclick = () => { closeSidebar(); };
+    });
+    // ESC closes sidebar
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeSidebar();
+    });
+  </script>
+</body>
+</html>
