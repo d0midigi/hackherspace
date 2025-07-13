@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ethical Hacking & Red Teaming - Home</title>
+  <title>hackherway - Home</title>
   <style>
     html, body {
       margin: 0;
@@ -42,7 +42,7 @@
     }
     .site-title {
       font-size: 1.3rem;
-      font-weight: bold;
+      font-weight: normal;
       letter-spacing: 1px;
     }
     .sidebar {
@@ -50,7 +50,9 @@
       left: 0; top: 0; bottom: 0;
       width: 260px;
       background: #23272a;
-      box-shadow: 2px 0 10px #0005;
+      border: 2px solid#23a6d5;
+      border-radiusL 14px 0 0 14px;
+      box-shadow: 0 0 20px 2px #23a6d5aa;
       transform: translateX(-110%);
       transition: transform 0.25s;
       z-index: 100;
@@ -78,7 +80,7 @@
       display: flex;
       align-items: center;
       width: 100%;
-      padding: 0.55em 1.5em 0.55em 1.5em;
+      padding: 0.55em 1.5em 0.55em 2.3em;
       background: none;
       border: none;
       color: #bcbcbc;
@@ -96,7 +98,7 @@
       background: none;
       border: none;
       color: inherit;
-      padding: 0;
+      padding-left: 2.3em;
       cursor: pointer;
       font: inherit;
       outline: none;
@@ -108,7 +110,7 @@
     .sidebar .dropdown-icon {
       display: inline-block;
       font-size: 1.15em;
-      margin-right: 0.4em;
+      margin-right: 1em;
       transition: transform 0.2s;
     }
     .sidebar .dropdown.open .dropdown-icon {
@@ -270,8 +272,15 @@
 <body>
   <div class="header">
     <button class="menu-btn" id="menuBtn" aria-label="Open Menu">☰</button>
-    <span class="site-title">Ethical Hacking & Red Teaming</span>
+    <span class="site-title">learn how to hackherway | the hacker way</span>
   </div>
+<div class="top buttons">
+    <button class="nav-btn">127.0.0.1</button>
+      <button class="nav-btn">whoami</button>
+      <button class="nav-btn">Resources</button>
+    <button class="nav-btn">Tool Vault</button>
+    <button class="nav-btn">Cyberpedia</button>
+</div>
 
   <aside class="sidebar" id="sidebar">
     <nav>
